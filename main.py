@@ -1,3 +1,17 @@
+import matplotlib.pyplot as plt
+import platform
+
+# ✅ 운영체제별 폰트 설정 (Streamlit Cloud는 Linux)
+if platform.system() == 'Windows':
+    plt.rc('font', family='Malgun Gothic')
+elif platform.system() == 'Darwin':  # macOS
+    plt.rc('font', family='AppleGothic')
+else:  # Linux (Streamlit Cloud 포함)
+    plt.rc('font', family='NanumGothic')  # 나눔고딕으로 설정
+
+# ✅ 마이너스 깨짐 방지
+plt.rcParams['axes.unicode_minus'] = False
+
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
